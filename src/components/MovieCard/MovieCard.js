@@ -19,7 +19,6 @@ class MovieCard extends Component{
         const {
             Title,
             Released,
-            Genre,
             Plot,
             Poster,
             imdbRating
