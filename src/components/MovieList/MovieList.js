@@ -11,7 +11,7 @@ class MovieList extends Component{
 
     search = event => {
         event.preventDefault();
-        axios.get(`http://www.omdbapi.com/?apikey=8a9660ef&s=${this.state.searchTerm}&plot=full`)
+        axios.get(`https://www.omdbapi.com/?apikey=8a9660ef&s=${this.state.searchTerm}&plot=full`)
             .then(res => res.data)
             .then(res => {
                 const movieList = res.Search.map(movie => movie.imdbID);
