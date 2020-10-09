@@ -8,7 +8,7 @@ class MovieCard extends Component{
     };
 
     componentDidMount() {
-        axios.get(`http://www.omdbapi.com/?i=${this.props.movieID}&apikey=8a9660ef`)
+        axios.get(`https://www.omdbapi.com/?i=${this.props.movieID}&apikey=8a9660ef`)
             .then(res => res.data)
             .then(res => {
             this.setState({movieData: res})
@@ -26,7 +26,10 @@ class MovieCard extends Component{
         return (
             <div className="movie-card-container">
                 <div className="image-container">
-                    <div className="bg-image" style={{ backgroundImage: `url(${Poster})` }}>
+                    <div
+                        className="bg-image"
+                        style={{ backgroundImage: `url(${Poster})` }}
+                    >
                     </div>
                 </div>
                 <div className="movie-info">
@@ -35,9 +38,9 @@ class MovieCard extends Component{
                         <h1>{Title}</h1>
                         <small>Released Date: {Released}</small>
                     </div>
+                    <h4>Rating: {imdbRating} / 10</h4>
+                    <p>{Plot && Plot.substr(0, 350)}</p>
                 </div>
-                <h4>Rating: {imdbRating} / 10</h4>
-                <p>{Plot && Plot.substr(0, 350)}</p>
             </div>
         )    
     }
